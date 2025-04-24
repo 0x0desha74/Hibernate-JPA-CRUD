@@ -21,9 +21,15 @@ public class CruddemoApplication {
     @Bean
     public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
         return runner -> {
-//            createStudent(studentDAO);
-        createMultipleStudents(studentDAO);
+            // createStudent(studentDAO);
+            //createMultipleStudents(studentDAO);
+        readStudent(studentDAO);
         };
+    }
+
+    private void readStudent(StudentDAO studentDAO) {
+        Student student =  studentDAO.findById(1);
+        System.out.println(student);
     }
 
     private void createMultipleStudents(StudentDAO studentDAO) {
