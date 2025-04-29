@@ -25,8 +25,17 @@ public class CruddemoApplication {
             // createMultipleStudents(studentDAO);
             // readStudent(studentDAO);
             //queryForStudents(studentDAO);
-        filterByLastName(studentDAO,"ahmed");
+        // filterByLastName(studentDAO,"ahmed");
+            updateStudent(studentDAO);
         };
+    }
+
+    private void updateStudent(StudentDAO studentDAO) {
+        var student = studentDAO.findById(1);
+        student.setFirstName("mustafa");
+        student.setLastName("alsayed");
+        student.setEmail("mustafa@gmail.com");
+        studentDAO.updateStudent(student);
     }
 
     private void filterByLastName(StudentDAO studentDAO, String name) {

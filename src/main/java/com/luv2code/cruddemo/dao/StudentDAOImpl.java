@@ -40,5 +40,18 @@ public class StudentDAOImpl implements StudentDAO{
         return query.getResultList();
     }
 
+    @Override
+    @Transactional
+    public void updateStudent(Student student) {
+        int id  = student.getId();
+        Student existingStudent = entityManager.find(Student.class,id);
+        existingStudent.setFirstName(student.getFirstName());
+        existingStudent.setLastName(student.getLastName());
+        existingStudent.setEmail(student.getEmail());
+
+        entityManager.merge(existingStudent);
+
+    }
+
 
 }
