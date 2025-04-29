@@ -27,8 +27,13 @@ public class CruddemoApplication {
             //queryForStudents(studentDAO);
         // filterByLastName(studentDAO,"ahmed");
             // updateStudent(studentDAO);
-            deleteSrudent(studentDAO);
+            // deleteSrudent(studentDAO);
+        deleteAllStudents(studentDAO);
         };
+    }
+
+    private void deleteAllStudents(StudentDAO studentDAO) {
+    studentDAO.deleteAll();
     }
 
     private void deleteSrudent(StudentDAO studentDAO) {
@@ -40,7 +45,7 @@ public class CruddemoApplication {
     private void updateStudent(StudentDAO studentDAO) {
         var student = studentDAO.findById(1);
         student.setFirstName("mustafa");
-        student.setLastName("alsayed");
+        student.setLastName("elsayed");
         student.setEmail("mustafa@gmail.com");
         studentDAO.updateStudent(student);
     }
