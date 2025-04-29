@@ -22,13 +22,20 @@ public class CruddemoApplication {
     public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
         return runner -> {
             // createStudent(studentDAO);
-            //createMultipleStudents(studentDAO);
-            //readStudent(studentDAO);
-            queryForStudent(studentDAO);
+            // createMultipleStudents(studentDAO);
+            // readStudent(studentDAO);
+            //queryForStudents(studentDAO);
+        filterByLastName(studentDAO,"ahmed");
         };
     }
 
-    private void queryForStudent(StudentDAO studentDAO) {
+    private void filterByLastName(StudentDAO studentDAO, String name) {
+    List<Student> students =  studentDAO.findByLastName(name);
+    for(var student : students)
+        System.out.println(student);
+    }
+
+    private void queryForStudents(StudentDAO studentDAO) {
         List<Student> students = studentDAO.findAll();
         for (Student student : students)
             System.out.println(student);
@@ -55,7 +62,7 @@ public class CruddemoApplication {
     private void createStudent(StudentDAO studentDAO) {
         //Creating the student object
         System.out.println("Creating new student object...");
-        Student student = new Student("Mustafa","Elsayed","mustafa.elsayed@gmail.com");
+        Student student = new Student("Ziad","Ahmed","ziad.ahmed@gmail.com");
         //Save student object
         studentDAO.save(student);
         // Display id of the  saved student
