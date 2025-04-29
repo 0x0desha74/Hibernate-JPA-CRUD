@@ -27,8 +27,8 @@ public class CruddemoApplication {
             //queryForStudents(studentDAO);
         // filterByLastName(studentDAO,"ahmed");
             // updateStudent(studentDAO);
-            // deleteSrudent(studentDAO);
-        deleteAllStudents(studentDAO);
+            // deleteStudent(studentDAO);
+        //deleteAllStudents(studentDAO);
         };
     }
 
@@ -36,7 +36,7 @@ public class CruddemoApplication {
     studentDAO.deleteAll();
     }
 
-    private void deleteSrudent(StudentDAO studentDAO) {
+    private void deleteStudent(StudentDAO studentDAO) {
         int id =4;
         studentDAO.deleteStudent(id);
         System.out.printf("Student with id = %d has been successfully deleted.",id);
